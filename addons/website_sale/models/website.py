@@ -93,7 +93,7 @@ class Website(models.Model):
                                                    website.pricelist_ids,
                                                    partner_pl=partner_pl and partner_pl.id or None,
                                                    order_pl=order_pl and order_pl.id or None)
-        return self.env['product.pricelist'].browse(pricelists)
+        return self.env['product.pricelist'].sudo().browse(pricelists)
 
     def is_pricelist_available(self, pl_id):
         """ Return a boolean to specify if a specific pricelist can be manually set on the website.
